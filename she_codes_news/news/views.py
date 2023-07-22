@@ -32,3 +32,20 @@ class AddStoryView(generic.CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+class SearchArticlesView(generic.TemplateView):
+    template_name = 'news/search_articles.html'
+
+class SearchResultsView(generic.ListView):
+    model = NewsStory
+    template_name = 'news/search_results.html'
+    context_object_name = 'search'
+    # success_url = reverse_lazy('news:search_articles')
+
+    def get_queryset(self):
+        username = self.request.GET.get('username')
+        if username:
+            queryset = NewsStory.objects.filter(author__username__icontains=username)
+        else:
+            queryset = NewsStory.objects.none()
+        return queryset

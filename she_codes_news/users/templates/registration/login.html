@@ -4,6 +4,7 @@
 
 {% block content %}
     <h2>Login</h2>
+    <h4>If you don't have an account yet, <a href="{% url 'users:createAccount' %}"> click here to create a new user</a></h4>
     <form method="post">
         {% csrf_token %}    
         {{ form.as_p }}

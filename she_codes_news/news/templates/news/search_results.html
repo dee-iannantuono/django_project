@@ -1,0 +1,16 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+    <div id="all-stories">
+        {% if search %}
+            {% for story in search %}
+                {% include "./storyCard.html" with story=story %}
+            {% endfor %}
+        {% else %}
+            <p>No stories are available.</p>
+        {% endif %}
+    </div>
+{% endblock %}

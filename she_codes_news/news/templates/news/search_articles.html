@@ -1,0 +1,12 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+<h4>Type the username of an author to find articles</h4>
+    <form method="GET" action="{% url 'news:search_results' %}">
+        <input type="text" name="username" placeholder="Search Author", id="username" required>
+        <input type="submit">Search</button>
+    </form>
+{% endblock %}
