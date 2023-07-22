@@ -1,0 +1,10 @@
+<!-- users/templates/users/accountview.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Hello, {{ user.username }}</h2>
+<h3>Welcome to your profile page that took me way too long to create!</h3>
+<h4>Email: {{ user.email }} </h4>
+<h5>Date joined: {{ user.date_joined }} </h5>
+{% endblock %}
